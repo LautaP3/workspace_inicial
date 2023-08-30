@@ -39,10 +39,12 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+
 function cerrarSesion() {
   localStorage.removeItem("isLoggedIn"); // Eliminar el valor de inicio de sesión
+  localStorage.removeItem("isLoggedIn"); // Eliminar el valor de inicio de sesión
   window.location.href = "login.html"; // Redirigir al inicio de sesión
-  localStorage.removeItem("userEmail");
 }
 
 // Obtén los elementos necesarios
@@ -61,5 +63,13 @@ if (perfilMenu.style.display === "block") {
 document.addEventListener("click", (event) => {
 if (!perfilButton.contains(event.target) && !perfilMenu.contains(event.target)) {
   perfilMenu.style.display = "none";
+}
+});
+
+// Mostrar el nombre del usuario si está autenticado
+document.addEventListener("DOMContentLoaded", function(){
+const username = localStorage.getItem("username");
+if (username) {
+  perfilButton.textContent = `${username}`;
 }
 });
