@@ -33,3 +33,43 @@
   margin-bottom: 5px;
   color: #464646; /* Color de texto para la descripción */
 }
+
+
+
+.relatedProductsStyles{
+  cursor: pointer;
+}
+
+.relatedProductsStyles h5:hover{
+  color: rgb(25, 25, 87);
+}
+@media (max-width: 1200px){
+  .responsiveComment{
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .responsiveProducts{
+    display: grid !important;
+    justify-content: center !important;
+  }
+
+  .responsiveFilter{
+    display: grid;
+    justify-content: center;
+  }
+
+  .filterContainerResponsive{
+    width: 100% !important;
+    display: grid;
+    justify-content: center;
+  }
+
+  .buttonsResponsive{
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
