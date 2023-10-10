@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 document.addEventListener("DOMContentLoaded", async () => {
   let username = localStorage.getItem("username"); // Obtener el nombre de usuario
   const commentsByProduct = {};
@@ -417,12 +415,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Creamos el cuerpo del producto relacionado
             const relatedProductCardBody = document.createElement("div");
-            relatedProductCardBody.classList.add("card-body");
+            relatedProductCardBody.classList.add("card-body", "w-100", "bg-dark");
 
             // Agregamos el nombre del producto relacionado
             const relatedProductName = document.createElement("h5");
             relatedProductName.textContent = relatedProduct.name;
-            relatedProductName.classList.add("card-title");
+            relatedProductName.classList.add("card-title", "text-info");
 
             // Agregamos la imagen del producto relacionado
             const relatedProductImage = document.createElement("img");
@@ -466,4 +464,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
   }
 });
->>>>>>> Stashed changes
