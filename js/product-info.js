@@ -48,7 +48,6 @@ addToCartButton.addEventListener("click", () => {
     unitCost: product.cost,
     currency: product.currency,
     count: 1, // Inicialmente, el producto se agrega con una cantidad de 1
-    // Puedes agregar más detalles del producto según tus necesidades
   };
 
   // Verificamos si ya hay productos en el carrito (en localStorage)
