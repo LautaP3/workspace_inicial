@@ -38,6 +38,7 @@ const addToCartButton = document.createElement("button");
 addToCartButton.textContent = "Agregar al carrito";
 addToCartButton.classList.add("btn", "btn-success", "m-2", "darkModeButton");
 
+// Agregamos un evento "click" al botón "Agregar al carrito"
 addToCartButton.addEventListener("click", () => {
   // Creamos un objeto que representa el producto a agregar al carrito
   const productToAddToCart = {
@@ -54,7 +55,7 @@ addToCartButton.addEventListener("click", () => {
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   // Verificamos si el producto ya existe en el carrito
-  const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart);
+  const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart.id);
 
   if (existingProductIndex !== -1) {
     // Si el producto ya está en el carrito, aumentamos su cantidad en 1
@@ -69,6 +70,7 @@ addToCartButton.addEventListener("click", () => {
 
   // Notificamos al usuario que el producto se ha añadido al carrito
   alert("El producto ha sido añadido al carrito.");
+
 });
 
 // Agregamos el botón de "Agregar al carrito" al contenedor de product-info
