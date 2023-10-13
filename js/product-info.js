@@ -33,6 +33,47 @@ document.addEventListener("DOMContentLoaded", async () => {
       "shadow",
       "darkModeProduct"
     );
+    // Creamos un botón de "Agregar al carrito"
+const addToCartButton = document.createElement("button");
+addToCartButton.textContent = "Agregar al carrito";
+addToCartButton.classList.add("btn", "btn-success", "m-2", "darkModeButton");
+
+addToCartButton.addEventListener("click", () => {
+  // Creamos un objeto que representa el producto a agregar al carrito
+  const productToAddToCart = {
+    id: selectedProductId, // Usar el ID del producto
+    image: product.image,
+    name: product.name,
+    unitCost: product.cost,
+    currency: product.currency,
+    count: 1, // Inicialmente, el producto se agrega con una cantidad de 1
+    // Puedes agregar más detalles del producto según tus necesidades
+  };
+
+  // Verificamos si ya hay productos en el carrito (en localStorage)
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Verificamos si el producto ya existe en el carrito
+  const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart);
+
+  if (existingProductIndex !== -1) {
+    // Si el producto ya está en el carrito, aumentamos su cantidad en 1
+    cartItems[existingProductIndex].count++;
+  } else {
+    // Si el producto no existe en el carrito, lo agregamos al arreglo de productos del carrito
+    cartItems.push(productToAddToCart);
+  }
+
+  // Almacenamos el carrito actualizado en el localStorage
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+
+  // Notificamos al usuario que el producto se ha añadido al carrito
+  alert("El producto ha sido añadido al carrito.");
+});
+
+// Agregamos el botón de "Agregar al carrito" al contenedor de product-info
+productInfoContainer.appendChild(addToCartButton);
+
 
     // Creamos un elemento div para el carrusel
     const carouselContainer = document.createElement("div");
@@ -65,6 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       carouselItem.appendChild(productImage);
       carouselInner.appendChild(carouselItem);
+      
     });
 
     // Agregamos el carrusel al contenedor de información del producto

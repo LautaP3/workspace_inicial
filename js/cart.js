@@ -54,4 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.error("Error al cargar el carrito de compras:", error);
     });
+    displayCartItems();
 });
+function displayCartItems() {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const productInfoDiv = document.getElementById("cart-products");
+
+  // Limpiamos cualquier contenido existente en el contenedor
+  productInfoDiv.innerHTML = "";
+
+  // Iteramos sobre los productos en el carrito y los mostramos
+  cartItems.forEach((product) => {
+    let queue = createQueue(product);
+    productInfoDiv.appendChild(queue);
+  });
+}
+
+// Llama a la función para mostrar el contenido del carrito cuando se carga la página "cart.html"
