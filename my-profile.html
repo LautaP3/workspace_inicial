@@ -63,36 +63,80 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="Perfil">
-        <h1>Perfil</h1>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Primer Nombre*</label>
-        <input type="text" class="form-control" id="nameInput1" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
-        <input type="text" class="form-control" id="nameInput2">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Primer Apellido*</label>
-        <input type="text" class="form-control" id="lastName1" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
-        <input type="text" class="form-control" id="lastName2">
-      </div>
-      <div class="mb-3 row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    <div class="profile-container">
+      <div class="container overflow-hidden">
+        <div class="row">
+          <div class="col-6">
+            <div class="p-3">
+              <h1>Perfil</h1>
+            </div>
+           </div>
+           <div class="col-6">
+            <div class="p-3">
+              <img id="profile-img" src="https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small_2x/profile-icon-design-free-vector.jpg" class="img-fluid img-thumbnail rounded float-end" style="max-width: 40%;">
+            </div>
+           </div>
+           <form class="row g-3 needs-validation" novalidate>
+          <div class="col-6">
+           <div class="p-1">
+            <label for="exampleFormControlInput1" class="form-label">Primer Nombre*</label>
+            <input type="text" class="form-control" id="nameInput1" required>
+            <div class="invalid-feedback">
+              Se requiere su Nombre
+            </div>
+           </div>
+          </div>
+          <div class="col-6">
+            <div class="p-1">
+             <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
+             <input type="email" class="form-control" id="nameInput2">
+            </div>
+           </div>
+           <div class="col-6">
+            <div class="p-1">
+             <label for="exampleFormControlInput1" class="form-label">Primer Apellido*</label>
+             <input type="text" class="form-control" id="lastNameInput1" required>
+             <div class="invalid-feedback">
+              Se requiere su apellido
+            </div>
+            </div>
+           </div>
+           <div class="col-6">
+            <div class="p-1">
+             <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
+             <input type="email" class="form-control" id="lastNameInput2">
+            </div>
+           </div>
+           <div class="col-6">
+            <div class="p-1">
+             <label for="staticEmail" class="form-label">E-mail</label>
+             <input type="text" readonly class="form-control-plaintext" id="emailInput" required>
+            </div>
+           </div>
+           <div class="col-6">
+            <div class="p-1">
+              <label for="formFile" class="form-label">Imágen de Perfil</label>
+              <input class="form-control" type="file" id="profileImageInput">
+            </div>
+           </div>
+          <div class="col-6">
+            <div class="p-1">
+              <label for="exampleFormControlInput1" class="form-label">Teléfono de Contacto*</label>
+              <input type="number" class="form-control" id="phoneInput" min="0" required>
+              <div class="invalid-feedback">
+                Se requiere su número de contacto
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">
+              <button type="submit" class="btn btn-primary float-end">Guardar Cambios</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Teléfono de contacto</label>
-        <input type="number" class="form-control" id="phoneNumber" required min="0">
-      </div>
+    </div>
+  </form>
   </main>
   <footer class="text-muted">
     <div class="container">
