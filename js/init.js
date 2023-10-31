@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function(){
 const username = localStorage.getItem("username");
 if (username) {
   profileButton.textContent = `${username}`;
+  const emailInput = document.getElementById("staticEmail");
+  emailInput.value = username;
 }
 });
 

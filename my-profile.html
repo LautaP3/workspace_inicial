@@ -64,10 +64,35 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="Perfil">
+        <h1>Perfil</h1>
       </div>
-    </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Primer Nombre*</label>
+        <input type="text" class="form-control" id="nameInput1" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
+        <input type="text" class="form-control" id="nameInput2">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Primer Apellido*</label>
+        <input type="text" class="form-control" id="lastName1" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
+        <input type="text" class="form-control" id="lastName2">
+      </div>
+      <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Teléfono de contacto</label>
+        <input type="number" class="form-control" id="phoneNumber" required min="0">
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">
