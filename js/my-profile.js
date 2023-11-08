@@ -1,12 +1,16 @@
+let selectedImage = null; // Declarar la variable global para la imagen seleccionada
 const profileImageInput = document.getElementById("profileImageInput");
 const profileImg = document.getElementById("profile-img");
 
 profileImageInput.addEventListener("change", (event) => {
-  const selectedImage = event.target.files[0]; 
+  selectedImage = event.target.files[0]; 
 
   if (selectedImage) {
-    const imageURL = URL.createObjectURL(selectedImage);
-    profileImg.src = imageURL;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      profileImg.src = e.target.result; // Cargar la imagen desde el FileReader
+    };
+    reader.readAsDataURL(selectedImage); // Leer la imagen como una URL de datos
   }
 });
 
@@ -37,7 +41,20 @@ profileImageInput.addEventListener("change", (event) => {
       lastName2: document.getElementById("lastNameInput2").value,
       email: document.getElementById("emailInput").value,
       phoneNumber: document.getElementById("phoneInput").value,
+      profileImage: profileImg.src, // Guardar la URL directamente
     };
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const dataURL = e.target.result;
+        userData.profileImage = dataURL;
+        // Guardar la imagen como una URL de datos en userData
+        localStorage.setItem("userData", JSON.stringify(userData));
+      };
+      reader.readAsDataURL(selectedImage);
+    }
+
+
   
     localStorage.setItem("userData", JSON.stringify(userData));
   
@@ -54,11 +71,19 @@ profileImageInput.addEventListener("change", (event) => {
       document.getElementById("lastNameInput2").value = userData.lastName2;
       document.getElementById("emailInput").value = userData.email;
       document.getElementById("phoneInput").value = userData.phoneNumber;
+
+    // Cargar la imagen de perfil
+    if (userData.profileImage) {
+      const profileImage = new Image();
+      profileImage.onload = function () {
+        profileImg.src = userData.profileImage;
+      };
+      profileImage.src = userData.profileImage;
     }
   }
-  
+}
+
   loadUserDataFromLocalStorage();
   
   const saveButton = document.getElementById("saveChanges");
   saveButton.addEventListener("click", saveUserDataToLocalStorage);
-  
